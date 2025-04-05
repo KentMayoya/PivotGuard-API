@@ -19,7 +19,7 @@ import com.pivotguard.pivotguard_api.responses.ThreatTypeResponse;
 import com.pivotguard.pivotguard_api.responses.SafeSitesResponse;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RequestMapping("/api/v1/sites")
 public class SiteController {
     private final SiteRepository siteRepository;
