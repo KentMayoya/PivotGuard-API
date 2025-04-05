@@ -1,4 +1,4 @@
-CREATE DATABASE pivotguardDB;
+CREATE DATABASE pivotguarddb;
 BEGIN;
 
 CREATE TABLE CompromisedSite (
@@ -19,10 +19,10 @@ CREATE TABLE Threat (
   "ThreatID" Serial,
   CONSTRAINT "FK_Threat.CompromisedID"
     FOREIGN KEY ("CompromisedID")
-      REFERENCES "Compromised Site"("ID"),
+      REFERENCES "CompromisedSite"("ID"),
   CONSTRAINT "FK_Threat.ThreatID"
     FOREIGN KEY ("ThreatID")
-      REFERENCES "Threat Type"("ID")
+      REFERENCES "ThreatType"("ID")
 );
 
 CREATE TABLE SafeSite (
@@ -38,10 +38,10 @@ CREATE TABLE Link (
   "SafeID" integer,
   CONSTRAINT "FK_Link.SafeID"
     FOREIGN KEY ("SafeID")
-      REFERENCES "Safe Site"("ID"),
+      REFERENCES "SafeSite"("ID"),
   CONSTRAINT "FK_Link.CompromisedID"
     FOREIGN KEY ("CompromisedID")
-      REFERENCES "Compromised Site"("ID")
+      REFERENCES "CompromisedSite"("ID")
 );
 
 CREATE INDEX "PK/FK" ON  "Link" ("CompromisedID", "SafeID");
