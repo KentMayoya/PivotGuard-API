@@ -12,7 +12,7 @@ public interface SiteRepository extends JpaRepository<Site, Integer> {
 
   @Query (nativeQuery = true, value = """
       SELECT EXISTS (
-        SELECT 1 FROM Site cs WHERE cs.URL = :currentSite
+        SELECT 1 FROM Site s WHERE s.URL = :currentSite AND s.iscompromised = TRUE
       );
       """)
     Boolean isCompromised(String currentSite);
