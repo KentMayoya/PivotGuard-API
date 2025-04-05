@@ -12,7 +12,6 @@ This is the backend application for this project. The frontend application can b
 | **API**     | Built Using Spring Boot|
 |**Database** | PostgreSQL             |
 |**Frontend** | HTML/CSS/JS            |
----------------------------------------
 
 ## Theme
 Privacy and Online Presence
