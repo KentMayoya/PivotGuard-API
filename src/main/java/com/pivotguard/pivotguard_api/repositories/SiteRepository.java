@@ -31,7 +31,7 @@ public interface SiteRepository extends JpaRepository<Site, Integer> {
           FROM
             site s
           WHERE
-            s.url = :url
+            (s.URL LIKE CONCAT('%' ,:url, '%') OR :url LIKE CONCAT('%', s.URL, '%'))
           LIMIT 1
         )
         AND iscompromised = FALSE;
