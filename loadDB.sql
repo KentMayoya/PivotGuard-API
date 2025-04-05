@@ -1,4 +1,5 @@
-CREATE DATABASE pivotgaurdDB;;
+CREATE DATABASE pivotguardDB;
+BEGIN;
 
 CREATE TABLE CompromisedSite (
   "ID" Serial,
