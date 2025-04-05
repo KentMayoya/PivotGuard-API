@@ -1,13 +1,13 @@
 CREATE DATABASE pivotgaurdDB;;
 
-CREATE TABLE Compromised_Site (
+CREATE TABLE CompromisedSite (
   "ID" Serial,
   "URL" varchar(50),
   "name" varchar(80),
   PRIMARY KEY ("ID")
 );
 
-CREATE TABLE Threat_Type (
+CREATE TABLE ThreatType (
   "ID" Serial,
   "threat" varchar(40),
   "threatDescription" varchar(300)
@@ -24,7 +24,7 @@ CREATE TABLE Threat (
       REFERENCES "Threat Type"("ID")
 );
 
-CREATE TABLE Safe_Site (
+CREATE TABLE SafeSite (
   "ID" serial,
   "URL" varchar(50),
   "name" varchar(80),

@@ -9,7 +9,7 @@ public interface CompromisedSiteRepository extends JpaRepository<CompromisedSite
 
   @Query (nativeQuery = true, value = """
             SELECT EXISTS (
-                SELECT 1 FROM Compromised_Site cs WHERE cs.ULR = :currentSite
+                SELECT 1 FROM CompromisedSite cs WHERE cs.ULR = :currentSite
             );
       """)
     Boolean isCompromised(String currentSite);
