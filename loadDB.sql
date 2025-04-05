@@ -1,49 +1,31 @@
 CREATE DATABASE pivotguarddb;
-BEGIN;
 
-CREATE TABLE CompromisedSite (
-  "ID" Serial,
-  "URL" varchar(50),
-  "name" varchar(80),
-  PRIMARY KEY ("ID")
+CREATE TABLE ServiceType (
+  Name varchar(50) NOT NULL,
+  PRIMARY KEY (Name)
+);
+
+CREATE TABLE Site (
+  ID serial NOT NULL,
+  URL varchar(50) UNIQUE,
+  Name varchar(80),
+  IsCompromised boolean NOT NULL,
+  ServiceType varchar(50),
+  PRIMARY KEY (ID),
+  FOREIGN KEY (ServiceType) REFERENCES ServiceType(Name) DEFERRABLE INITIALLY DEFERRED
 );
 
 CREATE TABLE ThreatType (
-  "ID" Serial,
-  "threat" varchar(40),
-  "threatDescription" varchar(300)
+  ID serial NOT NULL,
+  Name varchar(40) NOT NULL UNIQUE,
+  Description varchar(300),
+  PRIMARY KEY (ID)
 );
 
 CREATE TABLE Threat (
-  "CompromisedID" Serial,
-  "ThreatID" Serial,
-  CONSTRAINT "FK_Threat.CompromisedID"
-    FOREIGN KEY ("CompromisedID")
-      REFERENCES "CompromisedSite"("ID"),
-  CONSTRAINT "FK_Threat.ThreatID"
-    FOREIGN KEY ("ThreatID")
-      REFERENCES "ThreatType"("ID")
+  SiteID int NOT NULL,
+  ThreatID int NOT NULL,
+  PRIMARY KEY (SiteID, ThreatID),
+  FOREIGN KEY (SiteID) REFERENCES Site(ID) DEFERRABLE INITIALLY DEFERRED,
+  FOREIGN KEY (ThreatID) REFERENCES ThreatType(ID) DEFERRABLE INITIALLY DEFERRED
 );
-
-CREATE TABLE SafeSite (
-  "ID" serial,
-  "URL" varchar(50),
-  "name" varchar(80),
-  "Description" varchar(300),
-  PRIMARY KEY ("ID")
-);
-
-CREATE TABLE Link (
-  "CompromisedID" integer,
-  "SafeID" integer,
-  CONSTRAINT "FK_Link.SafeID"
-    FOREIGN KEY ("SafeID")
-      REFERENCES "SafeSite"("ID"),
-  CONSTRAINT "FK_Link.CompromisedID"
-    FOREIGN KEY ("CompromisedID")
-      REFERENCES "CompromisedSite"("ID")
-);
-
-CREATE INDEX "PK/FK" ON  "Link" ("CompromisedID", "SafeID");
-
-COMMIT;
