@@ -26,12 +26,12 @@ public class Threat {
     @NonNull
     @ManyToOne
     @MapsId("siteId")
-    @JoinColumn(name = "siteId")
+    @JoinColumn(name = "siteid")
     private Site site;
 
     @NonNull
     @ManyToOne
     @MapsId("threatTypeId")
-    @JoinColumn(name = "threatTypeId")
+    @JoinColumn(name = "threatid")
     private ThreatType threatTypeId;
 }
