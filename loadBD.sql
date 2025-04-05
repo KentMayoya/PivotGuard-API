@@ -1,19 +1,19 @@
 CREATE DATABASE pivotgaurdDB;;
 
-CREATE TABLE "Compromised Site" (
+CREATE TABLE Compromised_Site (
   "ID" Serial,
   "URL" varchar(50),
   "name" varchar(80),
   PRIMARY KEY ("ID")
 );
 
-CREATE TABLE "Threat Type" (
+CREATE TABLE Threat_Type (
   "ID" Serial,
   "threat" varchar(40),
   "threatDescription" varchar(300)
 );
 
-CREATE TABLE "Threat" (
+CREATE TABLE Threat (
   "CompromisedID" Serial,
   "ThreatID" Serial,
   CONSTRAINT "FK_Threat.CompromisedID"
@@ -24,7 +24,7 @@ CREATE TABLE "Threat" (
       REFERENCES "Threat Type"("ID")
 );
 
-CREATE TABLE "Safe Site" (
+CREATE TABLE Safe_Site (
   "ID" serial,
   "URL" varchar(50),
   "name" varchar(80),
@@ -32,7 +32,7 @@ CREATE TABLE "Safe Site" (
   PRIMARY KEY ("ID")
 );
 
-CREATE TABLE "Link" (
+CREATE TABLE Link (
   "CompromisedID" integer,
   "SafeID" integer,
   CONSTRAINT "FK_Link.SafeID"
