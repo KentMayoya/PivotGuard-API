@@ -7,6 +7,4 @@ package com.pivotguard.pivotguard_api.dtos;
 
 public interface ThreatDto {
   String getThreat();
-
-  String getDescription();
 }
