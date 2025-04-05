@@ -1,4 +1,3 @@
-
 package com.pivotguard.pivotguard_api.entities;
 
 import jakarta.persistence.Entity;
@@ -24,4 +23,6 @@ public class Site {
     
     @NonNull
     private String name;
+
+    private String description;
 }

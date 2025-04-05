@@ -1,9 +1,13 @@
 package com.pivotguard.pivotguard_api.repositories;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.pivotguard.pivotguard_api.entities.Site;
+
+import com.pivotguard.pivotguard_api.dtos.SafeSiteDto;
 
 public interface SiteRepository extends JpaRepository<Site, Integer> {
 
@@ -13,4 +17,26 @@ public interface SiteRepository extends JpaRepository<Site, Integer> {
       );
       """)
     Boolean isCompromised(String currentSite);
+
+
+  @Query (nativeQuery = true, value = """
+      SELECT 
+        s.url as URL,
+        s.name as name,
+        s.description as description
+      FROM 
+        Site s 
+      WHERE 
+        ServiceType = (
+          SELECT 
+            ServiceType
+          FROM 
+            site s
+          WHERE 
+            s.url = :url
+          LIMIT 1
+        )
+        AND iscompromised = FALSE;
+      """)
+    List<SafeSiteDto> getSafeSites(String url);
 }

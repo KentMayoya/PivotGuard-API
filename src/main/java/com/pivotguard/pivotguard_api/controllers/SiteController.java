@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.pivotguard.pivotguard_api.repositories.SiteRepository;
 import com.pivotguard.pivotguard_api.responses.CompromisedSiteResponse;
+import com.pivotguard.pivotguard_api.responses.SafeSitesResponse;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -28,4 +29,10 @@ public class SiteController {
         return ResponseEntity.ok(result);
     }
 
+    // test on http://localhost:8080/api/v1/sites/safeSiteAlternatives?url=www.google.com
+    @GetMapping("/safeSiteAlternatives")
+    ResponseEntity<SafeSitesResponse> getSafeSites(@RequestParam String url) {
+        SafeSitesResponse result = new SafeSitesResponse(siteRepository.getSafeSites(url));
+        return ResponseEntity.ok(result);
+    }
 }

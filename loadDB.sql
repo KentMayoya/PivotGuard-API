@@ -1,5 +1,6 @@
 CREATE DATABASE pivotguarddb;
 
+\c pivotguarddb
 CREATE TABLE ServiceType (
   Name varchar(50) NOT NULL,
   PRIMARY KEY (Name)
