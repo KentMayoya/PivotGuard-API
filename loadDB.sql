@@ -30,3 +30,29 @@ CREATE TABLE Threat (
   FOREIGN KEY (SiteID) REFERENCES Site(ID) DEFERRABLE INITIALLY DEFERRED,
   FOREIGN KEY (ThreatID) REFERENCES ThreatType(ID) DEFERRABLE INITIALLY DEFERRED
 );
+
+BEGIN;
+INSERT INTO ServiceType(Name)
+  VALUES ('AI Assistant'),
+  ('Cloud Storage'),
+  ('Dating Apps'),
+  ('Design Tools'),
+  ('Email'),
+  ('File Sharing'),
+  ('Fitness and Health'),
+  ('Forms'),
+  ('Home Assistants'),
+  ('Image Generation'),
+  ('Instant Messaging'),
+  ('Location Tracking'),
+  ('Maps and Nav'),
+  ('Menstrual Cycle Trackers'),
+  ('Music Recognition'),
+  ('Music Streaming'),
+  ('Office'),
+  ('Password Managers'),
+  ('Podcast'),
+  ('TikTok'),
+  ('URL Shortener'),
+  ('Video Streaming');
+COMMIT;
