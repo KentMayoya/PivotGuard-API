@@ -25,13 +25,13 @@ public class Threat {
 
     @NonNull
     @ManyToOne
-    @MapsId("compromisedSiteId")
-    @JoinColumn(name = "compromisedSiteId")
-    private Site compromisedSite;
-
-    @NonNull
-    @ManyToOne
     @MapsId("siteId")
     @JoinColumn(name = "siteId")
     private Site site;
+
+    @NonNull
+    @ManyToOne
+    @MapsId("threatTypeId")
+    @JoinColumn(name = "threatTypeId")
+    private ThreatType threatTypeId;
 }

@@ -12,17 +12,17 @@ import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class ThreatId implements Serializable {
-    private Integer compromisedSiteId;
     private Integer siteId;
+    private Integer threatTypeId;
 
-    public ThreatId(Integer compromisedSiteId, Integer siteId) {
-        this.compromisedSiteId = compromisedSiteId;
+    public ThreatId(Integer siteId, Integer threatTypeId) {
         this.siteId = siteId;
+        this.threatTypeId = threatTypeId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(compromisedSiteId, siteId);
+        return Objects.hash(siteId, threatTypeId);
     }
 
     @Override
@@ -31,6 +31,6 @@ public class ThreatId implements Serializable {
             return false;
         }
         ThreatId other = (ThreatId) obj;
-        return this.compromisedSiteId == other.compromisedSiteId && this.siteId == other.siteId;
+        return this.siteId == other.siteId && this.threatTypeId == other.threatTypeId;
     }
 }
