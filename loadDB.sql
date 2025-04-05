@@ -19,7 +19,6 @@ CREATE TABLE Site (
 CREATE TABLE ThreatType (
   ID serial NOT NULL,
   Name varchar(40) NOT NULL UNIQUE,
-  Description varchar(300),
   PRIMARY KEY (ID)
 );
 
@@ -55,4 +54,14 @@ INSERT INTO ServiceType(Name)
   ('TikTok'),
   ('URL Shortener'),
   ('Video Streaming');
+
+INSERT INTO ThreatType(Name)
+  VALUES ('Privacy'),
+  ('Trackers'),
+  ('Bad Encryption'),
+  ('Requires Permissions'),
+  ('Data Breach'),
+  ('Invasive Algorithms'),
+  ('Analytics');
+  
 COMMIT;
