@@ -20,7 +20,7 @@ Privacy and Online Presence
 ![Schema](https://github.com/user-attachments/assets/49b0e4dc-9866-48e1-b498-aaa0745a2491)
 
 ## The Team
-- Kent Mayoya (Backend/Schema
+- Kent Mayoya
 - Alan Talavera-Cordova
 - Gabe Lapingcao
 - Ivan Hoffman
