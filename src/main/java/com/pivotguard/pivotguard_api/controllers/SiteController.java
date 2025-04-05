@@ -16,6 +16,7 @@ import com.pivotguard.pivotguard_api.repositories.SiteRepository;
 import com.pivotguard.pivotguard_api.repositories.ThreatTypeRepository;
 import com.pivotguard.pivotguard_api.responses.CompromisedSiteResponse;
 import com.pivotguard.pivotguard_api.responses.ThreatTypeResponse;
+import com.pivotguard.pivotguard_api.responses.SafeSitesResponse;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -29,7 +30,7 @@ public class SiteController {
         this.threatTypeRepository = threatTypeRepository;
     }
 
-    // test on http://localhost:8080/api/v1/sites/isSafeSite?url=www.google.com
+    // test on http://localhost:8080/api/v1/sites/isSafeSite?url=drive.google.com
     @GetMapping("/isSafeSite")
     ResponseEntity<CompromisedSiteResponse> isCompromisedSite(@RequestParam String url) {
         CompromisedSiteResponse result = new CompromisedSiteResponse(siteRepository.isCompromised(url));
@@ -40,6 +41,13 @@ public class SiteController {
     @GetMapping("/getThreatTypes")
     ResponseEntity<ThreatTypeResponse> getThreatTypes(@RequestParam String url) {
         ThreatTypeResponse response = new ThreatTypeResponse(threatTypeRepository.getThreatTypes(url));
+        return ResponseEntity.ok(response);
+    }
+
+    // test on http://localhost:8080/api/v1/sites/getSafeSites?url=drive.google.com
+    @GetMapping("/getSafeSites")
+    ResponseEntity<SafeSitesResponse> getSafeSites(@RequestParam String url) {
+        SafeSitesResponse response = new SafeSitesResponse(siteRepository.getSafeSites(url));
         return ResponseEntity.ok(response);
     }
 }
