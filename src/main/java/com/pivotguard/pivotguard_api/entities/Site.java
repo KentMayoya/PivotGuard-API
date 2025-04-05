@@ -1,3 +1,8 @@
+/**
+ * Represents a Site.
+ * 
+ * @author Kent Mayoya
+ */
 package com.pivotguard.pivotguard_api.entities;
 
 import jakarta.persistence.Entity;

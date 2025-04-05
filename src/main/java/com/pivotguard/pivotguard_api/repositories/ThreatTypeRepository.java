@@ -1,3 +1,8 @@
+/**
+ * Repository layer for ThreatTypes.
+ * 
+ * @author Kent Mayoya
+ */
 package com.pivotguard.pivotguard_api.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
