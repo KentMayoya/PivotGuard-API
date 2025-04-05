@@ -1,6 +1,6 @@
 package com.pivotguard.pivotguard_api.entities;
 
-import com.pivotguard.pivotguard_api.composites.LinkId;
+import com.pivotguard.pivotguard_api.composites.ThreatId;
 import io.micrometer.common.lang.NonNull;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -12,20 +12,20 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "link")
-public class Link {
+@Table(name = "threat")
+public class Threat {
     @EmbeddedId
-    private LinkId id;
+    private ThreatId id;
 
     @NonNull
     @ManyToOne
     @MapsId("compromisedSiteId")
     @JoinColumn(name = "compromisedSiteId")
-    private CompromisedSite compromisedSite;
+    private Site compromisedSite;
 
     @NonNull
     @ManyToOne
-    @MapsId("safeSiteId")
-    @JoinColumn(name = "safeSiteId")
-    private SafeSite safeSite;
+    @MapsId("siteId")
+    @JoinColumn(name = "siteId")
+    private Site site;
 }

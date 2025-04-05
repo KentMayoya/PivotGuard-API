@@ -13,8 +13,8 @@ import lombok.NonNull;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "safesite")
-public class SafeSite {
+@Table(name = "site")
+public class Site {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -24,7 +24,4 @@ public class SafeSite {
     
     @NonNull
     private String name;
-
-    @NonNull
-    private String description;
 }
