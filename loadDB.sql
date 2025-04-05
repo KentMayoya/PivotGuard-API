@@ -55,6 +55,9 @@ INSERT INTO ServiceType(Name)
   ('URL Shortener'),
   ('Video Streaming');
 
+ALTER SEQUENCE ThreatType_id_seq
+  RESTART WITH 1;
+
 INSERT INTO ThreatType(Name)
   VALUES ('Privacy'),
   ('Trackers'),
@@ -63,6 +66,9 @@ INSERT INTO ThreatType(Name)
   ('Data Breach'),
   ('Invasive Algorithms'),
   ('Analytics');
+
+ALTER SEQUENCE Site_id_seq
+    RESTART WITH 1;
 
 INSERT INTO Site (URL, Name, IsCompromised, Description) VALUES
   ('openai.com', 'OpenAI', TRUE, NULL),
@@ -254,5 +260,21 @@ INSERT INTO Site (URL, Name, IsCompromised, Description) VALUES
   ('https://jellyfin.org/', 'JellyFin', FALSE, 'Jellyfin is the volunteer-built media solution that puts you in control of your media. Stream to any device from your own server, with no strings attached.'),
   ('https://github.com/Dusk-Labs/dim', 'Dim', FALSE, 'Dim is a self-hosted media manager. With minimal setup, Dim will organize and beautify your media collections, letting you access and play them anytime from anywhere.'),
   ('https://www.stremio.com/', 'Stremio', FALSE, 'Stremio is a modern media center that''s a one-stop solution for your video entertainment.');
+
+INSERT INTO Threat (SiteID, ThreatID) VALUES
+  (3, 1), (3, 2), (3,3), (3,4),
+  (4, 1), (4, 2), (4, 4),
+  (5, 1), (5, 2), (5, 3),
+  (11, 1),
+  (12, 1),
+  (13, 1),
+  (14, 1),
+  (15, 1), (15, 3),
+  (16, 3),
+  (17, 1),
+  (18, 1),
+  (19, 1),
+  (20, 1),
+  (21, 1);
 
 COMMIT;

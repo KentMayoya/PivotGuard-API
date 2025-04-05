@@ -36,7 +36,7 @@ public class SiteController {
         return ResponseEntity.ok(result);
     }
 
-    // test on http://localhost:8080/api/v1/sites/getThreatTypes?url=www.google.com
+    // test on http://localhost:8080/api/v1/sites/getThreatTypes?url=drive.google.com
     @GetMapping("/getThreatTypes")
     ResponseEntity<ThreatTypeResponse> getThreatTypes(@RequestParam String url) {
         ThreatTypeResponse response = new ThreatTypeResponse(threatTypeRepository.getThreatTypes(url));
