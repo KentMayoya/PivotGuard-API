@@ -11,7 +11,7 @@ CREATE TABLE Site (
   Name varchar(80),
   IsCompromised boolean NOT NULL,
   ServiceType varchar(50),
-  Description varchar(350),
+  description varchar(350),
   PRIMARY KEY (ID),
   FOREIGN KEY (ServiceType) REFERENCES ServiceType(Name) DEFERRABLE INITIALLY DEFERRED
 );
