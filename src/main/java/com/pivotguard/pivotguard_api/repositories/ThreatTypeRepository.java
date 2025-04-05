@@ -19,7 +19,7 @@ public interface ThreatTypeRepository extends JpaRepository<ThreatType, Integer>
         FROM ThreatType
             JOIN Threat ON (ThreatType.ID = Threat.ThreatID)
             JOIN Site ON (Threat.SiteID = Site.ID)
-        WHERE Site.URL = :url
+        WHERE site.URL LIKE CONCAT('%' ,:url, '%') OR :url LIKE CONCAT('%', site.URL, '%')
             """)
     List<String> getThreatTypes(String url);
 }
