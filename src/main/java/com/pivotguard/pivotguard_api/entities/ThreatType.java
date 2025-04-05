@@ -25,7 +25,4 @@ public class ThreatType {
 
     @NonNull
     private String name;
-
-    @NonNull
-    private String description;
 }

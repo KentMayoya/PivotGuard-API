@@ -1,3 +1,8 @@
+/**
+ * Repository layer for ThreatTypes.
+ * 
+ * @author Kent Mayoya
+ */
 package com.pivotguard.pivotguard_api.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,7 +16,7 @@ import java.util.List;
 public interface ThreatTypeRepository extends JpaRepository<ThreatType, Integer> {
 
   @Query (nativeQuery = true, value = """
-            SELECT tt.Name, tt.Description
+            SELECT tt.Name
             FROM ThreatType tt
                 JOIN Threat ON (tt.ID = Threat.ThreatID)
                 JOIN Site ON (Threat.SiteID = Site.ID)
