@@ -1,12 +1,16 @@
 package com.pivotguard.pivotguard_api.repositories;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.pivotguard.pivotguard_api.entities.Site;
 
 public interface SiteRepository extends JpaRepository<Site, Integer> {
-    // TODO: Add logic    
+
+  @Query (nativeQuery = true, value = """
+      SELECT EXISTS (
+        SELECT 1 FROM Site cs WHERE cs.URL = :currentSite
+      );
+      """)
+    Boolean isCompromised(String currentSite);
 }

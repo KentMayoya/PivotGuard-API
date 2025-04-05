@@ -1,3 +1,9 @@
+/**
+ * A junction object between Site and threat type. A site may have many
+ * threats, and a single threat may be related to many sites.
+ * 
+ * @author Kent Mayoya
+ */
 package com.pivotguard.pivotguard_api.entities;
 
 import com.pivotguard.pivotguard_api.composites.ThreatId;

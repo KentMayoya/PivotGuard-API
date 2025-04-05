@@ -1,6 +1,5 @@
 /**
- * Represents the junction object between site and threat type. A site may have many
- * threats, and a single threat may be related to many sites.
+ * Represents the composite key for Threat.
  * 
  * @author Kent Mayoya
  */
@@ -16,9 +15,9 @@ public class ThreatId implements Serializable {
     private Integer compromisedSiteId;
     private Integer siteId;
 
-    public ThreatId(Integer compromisedSiteId, Integer safeSiteId) {
+    public ThreatId(Integer compromisedSiteId, Integer siteId) {
         this.compromisedSiteId = compromisedSiteId;
-        this.siteId = safeSiteId;
+        this.siteId = siteId;
     }
 
     @Override

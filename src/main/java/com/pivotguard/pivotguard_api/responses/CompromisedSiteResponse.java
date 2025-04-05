@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class SafeSiteResponse {
-    private boolean isSafeSite;
+public class CompromisedSiteResponse {
+    private boolean isCompromisedSite;
 }
